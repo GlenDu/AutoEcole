@@ -1,11 +1,15 @@
-<nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar">
   <div class="container-fluid">
     <div class="logo-container">
         <h5>Auto Ecole Alpha</h5>
-      </div>
-    <a class="active" href="#home"> Accueille</a>
-    <a href="#news">About</a>
-    <a href="#contact">User</a>
+    </div>
+    <%#= link_to "Edit account", edit_user_registration_path %>
+    <%#= link_to "Log out", destroy_user_session_path%>
+    <%= link_to "Accueille", home_path %>
+    <%= link_to "Avantages", home_path %>
+    <%=link_to "Contact", home_path %>
+    <%= link_to "Adresse", home_path %>
+    <%= link_to "Autre", home_path %>
 
     <div class="menu-container">
         <div class="menu-icon">
@@ -15,9 +19,9 @@
           
           <div class="menu-list">
             <nav id="menu-nav">
-              <a href="#services">Inscription</a>
-              <a href="#portfolio">Log in</a>
-              <a href="#about">Log out</a>
+              <%= link_to "Log in", new_student_session_path %>
+              <%= link_to "Inscription", new_student_registration_path %>
+              <%= link_to "Log out", destroy_student_session_path, method: :delete %>
             </nav>
           </div>
         </div>

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'home', to: 'static_pages#home'
   devise_for :teachers
   devise_for :students
-  root 'static_page#home'
-  #root to: "home#index"
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
