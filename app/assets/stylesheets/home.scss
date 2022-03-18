@@ -11,17 +11,19 @@
   margin-top: 3px;
 }
 
-.navbar, .navbar:hover, .navbar:visited, .navbar:focus {
-  color: black;
-  text-decoration:none;
+.navbar {
+  z-index: 999;
 }
-.h2 {
-  position: left;
+
+a:hover {
+  color:  rgb(50, 214, 124);
+  text-decoration: none;
 }
 
 .logo-container {
-  width: 64px;
+  width: 160px;
   height: 64px;
+  text-align: center;
   display: flex;
   color: rgb(50, 214, 124);
   justify-content: space-around;
@@ -33,6 +35,7 @@
   background-color: white;
   width: 64px;
   height: 64px;
+  right: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,6 +98,7 @@
   padding: 15px 0 15px 15px;
   text-decoration: none;
   color: white;
+  z-index: 999;
   border-bottom: 1px solid #ececec;
   font-size: 0.95rem;
   font-weight: 500;
@@ -119,4 +123,41 @@
   background: url(first_img.jpg)no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.content {
+  max-width: 650;
+  margin: 70px 110px;
+  color: rgb(160, 66, 139);
+  text-shadow: rgb(190, 190, 36) 1px 0 10px;
+  text-transform: uppercase;
+  margin-bottom: 5%;
+}
+
+.content h2 span{
+  color: rgb(13, 105, 29);
+  text-shadow: rgb(190, 190, 36) 1px 0 10px;
+}
+
+.content h5 {
+  color: rgb(41, 40, 40);
+  text-shadow: white 1px 1px;
+}
+
+.info-btn {
+  position: absolute;
+  right: 10%;
+  color:#fff;
+  background-color: rgb(72, 72, 153);
+  text-transform: uppercase;
+  padding: 10px 20px;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.info-btn:hover {
+  color: rgb(162, 181, 190);
+  background-color: #226A80;
+  text-decoration: none;
 }

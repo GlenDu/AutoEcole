@@ -1,0 +1,31 @@
+p {
+  float: left;
+  font-family: Cambria;
+  font-size: 2vw;
+  color: grey;
+}
+
+p:hover {
+  font-family: Cambria;
+  color: white;
+}
+
+.footer {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+/* To get rid of the margins */
+body {
+  margin: 0;
+}
+/*To Make it look nice*/
+a {
+  text-decoration: none;
+  color: grey;
+} 
+/*For the hover effect*/
+a:hover {
+  color: white;
+}
