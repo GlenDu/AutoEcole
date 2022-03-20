@@ -1,3 +1,117 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*Accueille page */
+.container-img {
+  max-width: 60%;
+  margin-bottom: 3%;
+}
+
+.col-8 {
+  position: absolute;
+  left: 5%;
+}
+.col-4 {
+  position: absolute;
+  right: 3%;
+  margin: 1%;
+}
+
+.wrapper1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.wrapper1-item {
+  padding: 1px;
+}
+
+.testimonial-quote {
+  font-size: 16px;
+}
+
+.testimonial-quote blockquote {
+  /* Negate theme styles */
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  background: none;
+  color: gray;
+  font-family: Georgia, serif;
+  font-size: 1.5em;
+  font-style: italic;
+  line-height: 1.4 !important;
+  margin: 0;
+  position: relative;
+  text-shadow: 0 1px white;
+  z-index: 600;
+}
+
+.wrapper2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.wrapper2-item {
+  padding: 1px;
+}
+
+.testimonial-quote blockquote * {
+  box-sizing: border-box;
+}
+
+.testimonial-quote blockquote p {
+  color: #75808a;
+  line-height: 1.4 !important;
+}
+
+.testimonial-quote blockquote p:first-child:before {
+  content: '\201C';
+  color: #81bedb;
+  font-size: 7.5em;
+  font-weight: 700;
+  opacity: .3;
+  position: absolute;
+  top: -.4em;
+  left: -.2em;
+  text-shadow: none;
+  z-index: -300;
+}
+
+
+.testimonial-quote cite {
+  color: gray;
+  display: block;
+  font-size: .8em;
+}
+
+.testimonial-quote cite span {
+  color: #5e5e5e;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 1px white;
+}
+
+.testimonial-quote {
+  position: relative;
+}
+
+.testimonial-quote .quote-container {
+  padding-left: 100px;
+}
+
+.testimonial-quote.right .quote-container {
+  padding-left: 0;
+  padding-right: 160px;
+}
+
+/* Accueille page fin */
