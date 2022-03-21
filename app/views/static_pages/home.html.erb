@@ -6,16 +6,39 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application' %>
     <link href="../assets/stylesheets/styles.css" rel="stylesheet" />
+    <link href= "../assets/stylesheets/home.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
   </head>
-  <div class="landing-pg">
-  <div class="content">
-    <div class="catch-phrase">
-      <h2> Here we can logo <br><span>Or we can use catch-phrase!</span></h2>
-      <br>
-    <h5><b> Some small explenations or some phrase, description, mostly 3 lines phrases no more,mostly 3 lines phrases <br>
-    no more mostly 3 lines phrases no more,mostly 3 lines phrases no more</b></h5>
-    <br><br>
-    <%= link_to "S'INSCRIRE", new_student_registration_path, class: "info-btn" %>
+  <body>
+    <div class="landing-pg">
+      <header>
+        <div class="logo">
+          <%= link_to "Auto Ecole Alpha", home_path %>
+        </div>
+        <div class="navig">
+          <%= link_to "Accueille", accueille_path%>
+          <%= link_to "Permis Auto", permis_auto_path %>
+          <%= link_to "Permis Moto", home_path %>
+          <%= link_to "Le Code en ligne", home_path %>
+          <%=link_to "Contact", home_path %>
+        </div>  
+      </header>
 
-
-  </div>
+      <div class="content">
+        <div class="catch-phrase">
+          <h2> Here we can logo <br><span>Or we can use catch-phrase!</span></h2>
+          <br>
+          <h5><b> Some small explenations or some phrase, description, mostly 3 lines phrases no more,mostly 3 lines phrases <br>
+            no more mostly 3 lines phrases no more,mostly 3 lines phrases no more</b>
+          </h5>
+          <br><br>
+        </div>
+        <%= link_to "S'INSCRIRE", new_student_registration_path, class: "info-btn" %>
+      </div>
+      <div class="social-media-icones">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </body>
