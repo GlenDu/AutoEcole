@@ -41,14 +41,14 @@
   z-index: 600;
 }
 
-.wrapper1 {
+.wrapper2 {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2px;
   grid-auto-rows: minmax(100px, auto);
 }
 
-.wrapper1-item {
+.wrapper2-item {
   padding: 1px;
 }
 
@@ -106,13 +106,15 @@
 
 /* Permis */
 
-.wrapper2 {
+.wrapper3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2px;
-  grid-auto-rows: minmax(100px, auto);
 }
 
-.wrapper2-item {
-  padding: 1;
+.wrapper3-item {
+  padding: 1px;
+}
+
+.title {
+  text-align: center;
 }
