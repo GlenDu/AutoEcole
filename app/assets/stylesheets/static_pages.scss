@@ -9,7 +9,6 @@
   height: 64px;
   text-align: center;
   display: flex;
-  text-decoration: none!important;
   color: rgb(50, 214, 124);
   justify-content: space-around;
   align-items: center;
@@ -32,8 +31,9 @@
   margin-top: 2px;
 }
 
-.navbar {
+.navbar-fluid {
   z-index: 999;
+  text-decoration: none;
 }
 
 .menu-icon {
@@ -78,11 +78,10 @@
   border-bottom: 10px solid black;
 }
 
-.menu-icon:hover #menu-nav {
+.menu-icon:hover #menu-nav{
   background-color: black;
   color: white;
   position: absolute;
-  text-decoration: none!important;
   top: 100%;
   right: 0;
   width: 200px;

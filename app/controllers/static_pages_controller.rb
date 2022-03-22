@@ -9,4 +9,10 @@ class StaticPagesController < ApplicationController
   def permis_auto
   end
 
+  def permis_moto
+  end
+
+  def contact
+  end
+
 end
