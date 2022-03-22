@@ -2,171 +2,95 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.landing-pg {
+.landing_pg {
   position: relative;
+  font-family: inherit;
   width: 100%;
   display: flex;
+  text-decoration: none;
   flex-direction: column;
-  justify-content: flex-start;
+  min-width: 120px;
+  font-size: 20px;
+  padding: 12px 12px;
   background: url(first_img.jpg)no-repeat;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
 }
 
 header{
   position: relative;
-  top: 0;
   width: 100%;
-  padding: 10px 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-header .logo {
-  position: relative;
+.logo a {
+  font-family: "Caveat", cursive;
+  position: absolute;
+  width: 160px;
+  height: 50px;
+  color: #2C3E50;
   font-size: 25px;
   text-decoration: none;
   text-align: center;
-  color: rgb(50, 214, 124);
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
-header .navig a {
-  color:aquamarine;
-  background: rgb(139, 147, 218);
-  text-decoration: none;
-  font-weight: 500;
-  letter-spacing: 1px;
-  padding: 2px 5px;
-  border-radius: 20px;
+.sub-menu {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.container {
-  margin-top: 2px;
-}
-
-.navbar {
-  z-index: 999;
-}
-
-a:hover {
-  color:  rgb(50, 214, 124);
-  text-decoration: none;
-}
-
-.logo-container {
-  width: 160px;
-  height: 64px;
+.sub-menu a {
+  float: left;
+  font-size: 20px;
+  min-width: 90px;
+  color: #2C3E50;
   text-align: center;
-  display: flex;
-  color: rgb(50, 214, 124);
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 8px;
-  z-index: 999;
-}
-
-.menu-container {
-  background-color: white;
-  width: 64px;
-  height: 64px;
-  right: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.menu-icon {
-  display: flex;
-  flex-direction: column;
-  height: 64px;
-  width: 100%;
-  justify-content: center;
-  align-items: flex-end;
-  padding-right: 17px;
-  cursor: pointer;
-}
-
-.line {
-  width: 30px;
-  height: 2px;
-  background-color: black;
-}
-
-.line2 {
-  width: 20px;
-  height: 2px;
-  background-color: black;
-  margin: 5px 0;
-  transition-duration: 0.5s;
-}
-
-.menu-icon:hover .line2 {
-  width: 30px;
-}
-
-#menu-nav {
-  display: none;
-}
-
-#menu-nav::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  right: 22.5px;
-  border: 10px solid transparent;
-  border-bottom: 10px solid black;
-}
-
-.menu-icon:hover #menu-nav {
-  background-color: black;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 200px;
-  display: grid;
-  align-content: center;
-}
-
-.menu-list a {
-  padding: 15px 0 15px 15px;
+  padding: 14px 16px;
   text-decoration: none;
+  transition: all .5s;
+}
+
+.sub-menu a:hover {
   color: white;
-  z-index: 999;
-  border-bottom: 1px solid #ececec;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: 0.5s;
+  background-color: #2C3E50;
 }
 
-.menu-list a:nth-child(4) {
-  border-bottom: none;
+@media screen and (max-width: 600px) {
+  .landing_pg {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .sub-menu {
+    flex-direction: column;
+    border-color: #2C3E50;
+  }
 }
 
-.menu-list a:hover {
-  padding-left: 30px;
-}
-
+/****************************/
 .content {
   max-width: 650;
   margin: 70px 110px;
-  color: rgb(160, 66, 139);
-  text-shadow: rgb(190, 190, 36) 1px 0 10px;
+  font-size: 20px;
+  color: rgb(17, 16, 19);
+  text-shadow: rgb(82, 48, 230) 1px 0 10px;
   text-transform: uppercase;
   margin-bottom: 5%;
 }
 
-.content h2 span{
-  color: rgb(13, 105, 29);
-  text-shadow: rgb(190, 190, 36) 1px 0 10px;
+.content h1 span{
+  color: rgb(17, 19, 182);
+  text-shadow: rgb(36, 36, 33) 1px 0 10px;
 }
 
 .content h5 {
-  color: rgb(41, 40, 40);
-  text-shadow: white 1px 1px;
+  font-size: large;
+  color: black;
+  text-shadow: white 2px 2px 2px;
 }
 
 .info-btn {
@@ -174,6 +98,7 @@ a:hover {
   right: 10%;
   color:#fff;
   background-color: rgb(72, 72, 153);
+  text-decoration: none;
   text-transform: uppercase;
   padding: 10px 20px;
   letter-spacing: 1.5px;
@@ -185,4 +110,17 @@ a:hover {
   color: rgb(162, 181, 190);
   background-color: #226A80;
   text-decoration: none;
+}
+
+.social-media-icones {
+  font-size: 30px;
+  margin-right: 5px;
+  margin: 3%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  margin: 0 15px;
 }

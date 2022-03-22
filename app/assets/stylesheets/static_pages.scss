@@ -2,21 +2,127 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-/*Accueille page */
-.container-img {
-  max-width: 60%;
-  margin-bottom: 3%;
+/* Landing page*/
+
+.logo-container {
+  width: 160px;
+  height: 64px;
+  text-align: center;
+  display: flex;
+  text-decoration: none!important;
+  color: rgb(50, 214, 124);
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 8px;
+  z-index: 999;
 }
+
+.menu-container {
+  background-color: white;
+  width: 64px;
+  height: 64px;
+  right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container {
+  margin-top: 2px;
+}
+
+.navbar {
+  z-index: 999;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  height: 64px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 17px;
+  cursor: pointer;
+}
+
+.line {
+  width: 30px;
+  height: 2px;
+  background-color: black;
+}
+
+.line2 {
+  width: 20px;
+  height: 2px;
+  background-color: black;
+  margin: 5px 0;
+  transition-duration: 0.5s;
+}
+
+.menu-icon:hover .line2 {
+  width: 30px;
+}
+
+#menu-nav {
+  display: none;
+}
+
+#menu-nav::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: 22.5px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid black;
+}
+
+.menu-icon:hover #menu-nav {
+  background-color: black;
+  color: white;
+  position: absolute;
+  text-decoration: none!important;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  display: grid;
+  align-content: center;
+}
+
+.menu-list a {
+  padding: 15px 0 15px 15px;
+  text-decoration: none;
+  color: white;
+  z-index: 999;
+  border-bottom: 1px solid #ececec;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.menu-list a:nth-child(4) {
+  border-bottom: none;
+}
+
+.menu-list a:hover {
+  padding-left: 30px;
+  text-decoration: none!important;
+}
+
+
+/*Accueille page */
 
 .wrapper1 {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2px;
+  gap: 1px;
   grid-auto-rows: minmax(100px, auto);
 }
 
 .wrapper1-item {
   padding: 1px;
+  right: 1px;
 }
 
 .testimonial-quote {

@@ -6,4 +6,7 @@ class StaticPagesController < ApplicationController
   def accueille
   end
 
+  def permis_auto
+  end
+
 end
