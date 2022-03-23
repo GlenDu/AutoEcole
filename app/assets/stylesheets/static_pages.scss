@@ -231,3 +231,125 @@
 .title {
   text-align: center;
 }
+
+hr {
+  border: none;
+}
+
+hr::after {
+  display: block;
+  text-align: center;
+}
+
+/*   Contacts  */
+
+.general-body {
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+  background-color: rgb(214, 208, 208);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contac-page {
+  width: 100%;
+  max-width: 1400px;
+  padding: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h3 {
+  width: 100%;
+  margin-bottom: 80px;
+  text-transform: uppercase;
+  color: #322;
+  font-size: 60px;
+  text-shadow: rgb(158, 154, 154) 5px 5px 5px;
+}
+
+.contact-info, .contac-form {
+  flex: 1;
+}
+
+.item {
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: #322;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background-color: #3494db;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.contac-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.textb {
+  width: calc(50% - 10%);
+  height: 50x;
+  padding: 12px;
+  background-color: #222;
+  border: none;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+textarea{
+  width: calc(50% - 10%);
+  height: 50px;
+  padding: 12px;
+  background-color: #222;
+  border: none;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100px;
+  height: 35px;
+  margin-left: auto;
+  background-color: #3494db;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solic #3494db;
+  transition: .2s linear;
+}
+
+btn:hover{
+  background-color: transparent;
+  color: #3494db
+}
+
+@media screen and (max-width: 980 px){
+  .contac-page{
+    max-width: 800px;
+  }
+  h3{
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+  .contact-info .contac-form{
+    flex: 100%;
+    margin-bottom: 30px;
+  }
+
+  .textb{
+    width: 100%;
+  }
+}
