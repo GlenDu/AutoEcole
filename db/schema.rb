@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_14_180149) do
+ActiveRecord::Schema.define(version: 2022_03_25_180309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendars", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.string "time_slots"
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_calendars_on_lesson_id"
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.date "date"
+    t.date "start_lesson"
+    t.date "end_lesson"
+    t.bigint "teachr_students_id"
+    t.bigint "teachers_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teachers_id"], name: "index_lessons_on_teachers_id"
+    t.index ["teachr_students_id"], name: "index_lessons_on_teachr_students_id"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -48,4 +70,18 @@ ActiveRecord::Schema.define(version: 2022_03_14_180149) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  create_table "teachr_students", force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.bigint "student_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_teachr_students_on_student_id"
+    t.index ["teacher_id"], name: "index_teachr_students_on_teacher_id"
+  end
+
+  add_foreign_key "calendars", "lessons"
+  add_foreign_key "lessons", "teachers", column: "teachers_id"
+  add_foreign_key "lessons", "teachr_students", column: "teachr_students_id"
+  add_foreign_key "teachr_students", "students"
+  add_foreign_key "teachr_students", "teachers"
 end
