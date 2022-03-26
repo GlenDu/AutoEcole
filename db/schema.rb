@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_25_180309) do
+ActiveRecord::Schema.define(version: 2022_03_26_172105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,19 @@ ActiveRecord::Schema.define(version: 2022_03_25_180309) do
     t.index ["teachr_students_id"], name: "index_lessons_on_teachr_students_id"
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.date "year_born", null: false
+  create_table "profil_students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "year_birth"
     t.string "postal_code"
-    t.string "phone", default: "", null: false
+    t.integer "phone"
+    t.bigint "students_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["students_id"], name: "index_profil_students_on_students_id"
+  end
+
+  create_table "students", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "account_active", default: true
@@ -82,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_03_25_180309) do
   add_foreign_key "calendars", "lessons"
   add_foreign_key "lessons", "teachers", column: "teachers_id"
   add_foreign_key "lessons", "teachr_students", column: "teachr_students_id"
+  add_foreign_key "profil_students", "students", column: "students_id"
   add_foreign_key "teachr_students", "students"
   add_foreign_key "teachr_students", "teachers"
 end
