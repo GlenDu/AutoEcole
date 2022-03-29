@@ -3,30 +3,33 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :Prénom %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+  <%= f.fields_for :profil_students do |pf| %>
+    <div class="field">
+      <%= pf.label :Prénom %><br />
+      <%= pf.text_field :first_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :Nom %><br />
+      <%= pf.text_field :last_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :Date_de_naissance %><br />
+      <%= pf.date_field :year_born, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :CP %><br />
+      <%= pf.text_field :postal_code, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :Numéro_téléphone %><br />
+    <%= pf.text_field :phone, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :Nom %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Date_de_naissance %><br />
-    <%= f.date_field :year_born, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :CP %><br />
-    <%= f.text_field :postal_code, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Numéro_téléphone %><br />
-    <%= f.text_field :phone, autofocus: true %>
-  </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :email %><br />

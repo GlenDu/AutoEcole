@@ -12,9 +12,9 @@ class Students::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -27,9 +27,9 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  #def destroy
+    #super
+  #end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -40,8 +40,11 @@ class Students::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
+  def sign_up_params
+    #devise_parameter_sanitizer.sanitize(:sign_up) { |student| user.permit(permitted_attributes) }
+  end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :year_birth, :postal_code, :phone])
@@ -53,12 +56,13 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    super(resource)
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
 end

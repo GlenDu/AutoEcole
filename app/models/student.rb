@@ -8,4 +8,5 @@ class Student < ApplicationRecord
   has_one :profil_student
 
   accepts_nested_attributes_for :profil_student
+
 end

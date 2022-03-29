@@ -6,7 +6,7 @@ class CreateProfilStudents < ActiveRecord::Migration[6.1]
       t.date :year_birth
       t.string :postal_code
       t.integer :phone
-      t.references :students, null: false, foreign_key: true
+      t.belongs_to :students, null: false, foreign_key: true
 
       t.timestamps
     end
