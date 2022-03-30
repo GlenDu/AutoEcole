@@ -7,7 +7,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     build_resource({})
-    resource.build_profile_students
+    resource.build_profil_student
     respond_with resource
   end
 
@@ -43,26 +43,38 @@ class Students::RegistrationsController < Devise::RegistrationsController
   protected
 
   def sign_up_params
-    #devise_parameter_sanitizer.sanitize(:sign_up) { |student| user.permit(permitted_attributes) }
+    devise_parameter_sanitizer.sanitize(:sign_up) { |student| user.permit(permitted_attributes) }
   end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :year_birth, :postal_code, :phone])
+    #devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :year_birth, :postal_code, :phone])
+    devise_parameter_sanitizer.permit(:sign_up, keys: permitted_attributes)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  # end 
 
-  # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    super(resource)
+  def permitted_attributes
+    [
+      :email,
+      :password,
+      :password_confirmation,
+      profil_student_attributes: %i[first_name last_name year_birth postal_code phone]
+    ]
   end
 
+
+
+  # The path used after sign up.
+  #def after_sign_up_path_for(resource)
+    #super(resource)
+  #end
+
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    super(resource)
+  end
 
 end

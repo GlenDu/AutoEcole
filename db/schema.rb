@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 2022_03_26_172105) do
     t.date "year_birth"
     t.string "postal_code"
     t.integer "phone"
-    t.bigint "students_id", null: false
+    t.bigint "student_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["students_id"], name: "index_profil_students_on_students_id"
+    t.index ["student_id"], name: "index_profil_students_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2022_03_26_172105) do
   add_foreign_key "calendars", "lessons"
   add_foreign_key "lessons", "teachers", column: "teachers_id"
   add_foreign_key "lessons", "teachr_students", column: "teachr_students_id"
-  add_foreign_key "profil_students", "students", column: "students_id"
+  add_foreign_key "profil_students", "students"
   add_foreign_key "teachr_students", "students"
   add_foreign_key "teachr_students", "teachers"
 end
