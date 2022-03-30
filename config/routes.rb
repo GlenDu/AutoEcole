@@ -14,9 +14,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact'
   devise_for :students, controllers: {
     registrations: 'students/registrations',
-    #sessions: 'students/registrations'
   }
-  devise_for :teachers
-  #devise_for :students
+  devise_for :teachers, path: 'teachers'
 
 end
