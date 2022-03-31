@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   get 'permis_moto', to: 'static_pages#permis_moto'
   get 'contact', to: 'static_pages#contact'
   devise_for :students, controllers: {
-    registrations: 'students/registrations',
+    registrations: 'students/registrations'
   }
-  devise_for :teachers, path: 'teachers'
+
+  devise_for :teachers, controllers: {
+    registrations: 'teachers/registrations'
+  }
 
 end
