@@ -43,11 +43,10 @@ class Students::RegistrationsController < Devise::RegistrationsController
   protected
 
   def sign_up_params
-    devise_parameter_sanitizer.sanitize(:sign_up) { |student| user.permit(permitted_attributes) }
+    devise_parameter_sanitizer.sanitize(:sign_up) { |student| student.permit(permitted_attributes) }
   end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    #devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :year_birth, :postal_code, :phone])
     devise_parameter_sanitizer.permit(:sign_up, keys: permitted_attributes)
   end
 
