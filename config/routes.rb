@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :static_pages
+  root to: "static_pages#home"
+
   get 'student/show'
   get 'teacher_student/new'
   get 'teacher_student/show'
