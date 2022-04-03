@@ -1,2 +1,29 @@
 <h1>Lesson#create</h1>
-<p>Find me in app/views/lesson/create.html.erb</p>
+
+<%= form_with(model: lesson) do |f| %>
+  <div class="field">
+    <%= f.label "Remarque 1" %>
+    <%= f.text_field :remark1 %>
+    <br>
+  </div>
+
+  <div class="field">
+    <%= f.label "Remarque 2" %>
+    <%= f.text_field :remark2 %>
+    <br>
+  </div>
+
+  <div class="field">
+    <%= f.label "Remarque 3" %>
+    <%= f.text_field :remark3 %>
+    <br>
+  </div>
+
+  <div class="field">
+    <%= f.label "Remarque 4" %>
+    <%= f.text_field :remark4 %>
+    <br>
+  </div>
+
+
+<% end %>

@@ -1,0 +1,28 @@
+  <%= form_with(model: @lesson, url: lesson_new_path) do |f| %>
+
+    <div class="field">
+      <%= f.label "Remarque 1" %>
+      <%= f.text_field :remark1 %>
+      <br>
+    </div>
+
+    <div class="field">
+      <%= f.label "Remarque 2" %>
+      <%= f.text_field :remark2 %>
+      <br>
+    </div>
+
+    <div class="field">
+      <%= f.label "Remarque 3" %>
+      <%= f.text_field :remark3 %>
+      <br>
+    </div>
+
+    <div class="field">
+      <%= f.label "Remarque 4" %>
+      <%= f.text_field :remark4 %>
+      <br>
+    </div>
+
+
+<% end %>

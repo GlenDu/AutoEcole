@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   get 'lesson/index'
   get 'lesson/show'
   get 'lesson/create'
+  get 'lesson/new'
   get 'home', to: 'static_pages#home'
   get 'accueille', to: 'static_pages#accueille'
   get 'permis_auto', to: 'static_pages#permis_auto'
   get 'permis_moto', to: 'static_pages#permis_moto'
   get 'contact', to: 'static_pages#contact'
+  get 'provisoir', to: 'static_pages#provisoir'
+
   devise_for :students, controllers: {
     registrations: 'students/registrations'
   }
