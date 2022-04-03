@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   devise_for :students, controllers: {
     registrations: 'students/registrations'
   }
-
+  resources :students, path:  'custom/student', :only => [:show]
+  get 'show/:id' => 'student#show'
   devise_for :teachers, controllers: {
     registrations: 'teachers/registrations'
   }
