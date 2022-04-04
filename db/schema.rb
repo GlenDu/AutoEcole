@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_202754) do
+ActiveRecord::Schema.define(version: 2022_03_25_180309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,79 +30,9 @@ ActiveRecord::Schema.define(version: 2022_03_31_202754) do
     t.datetime "start_lesson"
     t.datetime "end_lesson"
     t.text "remark1"
-    t.text "remark2"
-    t.text "remark3"
-    t.bigint "teachr_students_id"
-    t.bigint "teachers_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["teachers_id"], name: "index_lessons_on_teachers_id"
-    t.index ["teachr_students_id"], name: "index_lessons_on_teachr_students_id"
-  end
-
-  create_table "profil_students", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.date "year_birth"
-    t.string "postal_code"
-    t.integer "phone"
-    t.bigint "student_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_profil_students_on_student_id"
-  end
-
-  create_table "profile_teachers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.bigint "teacher_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["teacher_id"], name: "index_profile_teachers_on_teacher_id"
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.boolean "account_active", default: true
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_students_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
-  end
-
-  create_table "teachers", force: :cascade do |t|
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.boolean "admin", default: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_teachers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
-  end
-
-  create_table "teachr_students", force: :cascade do |t|
-    t.bigint "teacher_id", null: false
-    t.bigint "student_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_teachr_students_on_student_id"
-    t.index ["teacher_id"], name: "index_teachr_students_on_teacher_id"
   end
 
   add_foreign_key "calendars", "lessons"
-  add_foreign_key "lessons", "teachers", column: "teachers_id"
-  add_foreign_key "lessons", "teachr_students", column: "teachr_students_id"
-  add_foreign_key "profil_students", "students"
-  add_foreign_key "profile_teachers", "teachers"
-  add_foreign_key "teachr_students", "students"
-  add_foreign_key "teachr_students", "teachers"
 end
