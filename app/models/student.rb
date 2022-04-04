@@ -5,6 +5,7 @@ class Student < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
+  has_many :lessons
   has_one :profil_student, dependent: :destroy
   accepts_nested_attributes_for :profil_student
 

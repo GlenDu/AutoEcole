@@ -1,28 +1,39 @@
-  <%= form_with(model: @lesson, url: lesson_new_path) do |f| %>
+<%= form_with(model: @lesson, url: lesson_new_path) do |f| %>
 
+  <label> Date du cours </label>
     <div class="field">
-      <%= f.label "Remarque 1" %>
+      <%= f.date_field :date %>
+      <br><br>
+    </div>
+
+  <label> Heure du début du cours </label>
+    <div class="field">
+      <%= f.datetime_select, ignore_date: true :start_lesson %>
+      <br><br>
+    </div>
+
+  <label> Heure de la fin du cours </label>
+    <div class="field">
+      <%= f.datetime_select, ignore_date: true :end_lesson %>
+      <br><br>
+    </div>
+
+  <%= f.label "Remarques du moniteur" %>
+    <div class="field">
       <%= f.text_field :remark1 %>
       <br>
     </div>
 
+  <%= f.label "Autre remarque" %>
     <div class="field">
-      <%= f.label "Remarque 2" %>
       <%= f.text_field :remark2 %>
       <br>
     </div>
 
+  <%= f.label "évaluation/rémarque individuel" %>
     <div class="field">
-      <%= f.label "Remarque 3" %>
       <%= f.text_field :remark3 %>
-      <br>
+      <br><br>
     </div>
-
-    <div class="field">
-      <%= f.label "Remarque 4" %>
-      <%= f.text_field :remark4 %>
-      <br>
-    </div>
-
 
 <% end %>

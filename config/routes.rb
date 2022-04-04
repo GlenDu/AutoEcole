@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'permis_auto', to: 'static_pages#permis_auto'
   get 'permis_moto', to: 'static_pages#permis_moto'
   get 'contact', to: 'static_pages#contact'
-  get 'provisoir', to: 'static_pages#provisoir'
+  #get 'provisoir', to: 'static_pages#provisoir'
 
   devise_for :students, controllers: {
     registrations: 'students/registrations'

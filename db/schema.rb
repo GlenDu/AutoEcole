@@ -27,13 +27,11 @@ ActiveRecord::Schema.define(version: 2022_03_31_202754) do
 
   create_table "lessons", force: :cascade do |t|
     t.date "date"
-    t.date "start_lesson"
-    t.date "end_lesson"
-    t.string "type_lesson"
+    t.datetime "start_lesson"
+    t.datetime "end_lesson"
     t.text "remark1"
     t.text "remark2"
     t.text "remark3"
-    t.text "remark4"
     t.bigint "teachr_students_id"
     t.bigint "teachers_id", null: false
     t.datetime "created_at", precision: 6, null: false
