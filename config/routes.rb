@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'student/show'
   get 'student/new'
   get 'student/create'
-  devise_for :users
+  #devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
   resources :static_pages
   root to: "static_pages#home"
 

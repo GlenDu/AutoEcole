@@ -1,25 +1,25 @@
 class ApplicationController < ActionController::Base
+  #protect_from_forgery with: :exception
+  #before_action :configure_sign_up_params, if: :devise_controller?
 =begin
-  protect_from_forgery with: :exception
-
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+  def configure_sign_up_params
+    #devise_parameter_sanitizer.permit(:sign_up, keys: permitted_attributes)
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :year_birth, :postal_code, :phone_nb])
+  end
 
-  def configure_permitted_parameters
-    added_attrs =
+
+  def permitted_attributes
+    [:first_name, :last_name, :year_birth, :postal_code, :phone_nb]
+
     [
       :email,
       :password,
       :password_confirmation,
-      :first_name,
-      :last_name,
-      :year_birth,
-      :postal_code,
-      :phone
+      student_attributes: %i[:first_name :last_name :year_birth :postal_code :phone_nb]
     ]
-    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-    #devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 =end
+
 end

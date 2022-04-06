@@ -6,21 +6,22 @@
       <br><br>
     </div>
 
-  <%= f.label "Remarques du moniteur" %>
+  <label> Début du cours </label>
     <div class="field">
-      <%= f.text_field :remark1 %>
-      <br>
+      <%= f.time_field :start_lesson, :format=>"%H:%M" %>
+      <br><br>
     </div>
 
-  <%= f.label "Autre remarque" %>
+  <label> Fin du cours </label>
     <div class="field">
-      <%= f.text_field :remark2 %>
-      <br>
-    </div>
+      <%= f.time_field :end_lesson, :format=>"%H:%M" %>
+      <br><br>
+  </div>
+
 
   <%= f.label "évaluation/rémarque individuel" %>
     <div class="field">
-      <%= f.text_field :remark3 %>
+      <%= f.text_field :remark1 %>
       <br><br>
     </div>
 

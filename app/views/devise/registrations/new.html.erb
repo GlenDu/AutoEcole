@@ -3,6 +3,33 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <%= f.fields_for :student do |pf| %>
+    <div class="field">
+      <label> Prénom </label><br>
+      <%= pf.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <label> Nom </label><br>
+      <%= pf.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <label> Date de Date de naissance </label><br>
+      <%= pf.date_field :year_birth %>
+    </div>
+
+    <div class="field">
+      <label> Code Postal </label><br>
+      <%= pf.text_field :postal_code %>
+    </div>
+
+    <div class="field">
+      <label> Numéro de téléphone </label><br>
+      <%= pf.text_field :phone_nb %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
