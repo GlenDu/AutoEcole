@@ -42,7 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   def sign_up_params
-    devise_parameter_sanitizer.sanitize(:sign_up) { |student| student.permit(permitted_attributes) }
+    devise_parameter_sanitizer.sanitize(:sign_up) { |u| u.permit(permitted_attributes) }
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :email,
       :password,
       :password_confirmation,
-      profile_attributes: %i[first_name last_name phone year_birth postal_code]
+      student_attributes: %i[first_name last_name phone_nb year_birth postal_code]
     ]
   end
 
