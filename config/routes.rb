@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'teacher/index'
+  get 'teacher/show'
+  get 'teacher/new'
+  get 'teacher/create'
+  get 'student/index'
+  get 'student/show'
+  get 'student/new'
+  get 'student/create'
   devise_for :users
   resources :static_pages
   root to: "static_pages#home"
