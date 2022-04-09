@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     build_resource({})
     resource.build_student
+    resource.build_teacher
     respond_with resource
   end
 
@@ -60,7 +61,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :email,
       :password,
       :password_confirmation,
-      student_attributes: %i[first_name last_name phone_nb year_birth postal_code]
+      student_attributes: %i[first_name last_name phone_nb year_birth postal_code],
+      teacher_attributes: %i[first_name last_name phone_nb description]
     ]
   end
 

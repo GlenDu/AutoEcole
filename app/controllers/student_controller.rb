@@ -8,7 +8,7 @@ class StudentController < ApplicationController
   end
 
   def show
-    @current_student = Student.find_by(user_id: current_user.id)
+    @current_student = current_user.student
   end
 
   def create

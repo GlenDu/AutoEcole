@@ -3,38 +3,53 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= f.fields_for :student do |pf| %>
-    <div class="field">
-      <label> Prénom </label><br>
-      <%= pf.text_field :first_name %>
-    </div>
-
-    <div class="field">
-      <label> Nom </label><br>
-      <%= pf.text_field :last_name %>
-    </div>
-
-    <div class="field">
-      <label> Date de Date de naissance </label><br>
-      <%= pf.date_field :year_birth %>
-    </div>
-
-    <div class="field">
-      <label> Code Postal </label><br>
-      <%= pf.text_field :postal_code %>
-    </div>
-
-    <div class="field">
-      <label> Numéro de téléphone </label><br>
-      <%= pf.text_field :phone_nb %>
-    </div>
+  <% if params[:type] == 'teacher' %>
+    <%= f.fields_for :teacher do |teacher_form| %>
+      <div class="field">
+        <label> Prénom </label><br>
+        <%= teacher_form.text_field :first_name %>
+      </div>
+      <div class="field">
+        <label> Nom </label><br>
+        <%= teacher_form.text_field :last_name %>
+      </div>
+      <div class="field">
+        <label> Numéro de téléphone </label><br>
+        <%= teacher_form.text_field :phone_nb %>
+      </div>
+      <div class="field">
+        <label> Description </label><br>
+        <%= teacher_form.text_field :description %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= f.fields_for :student do |student_form| %>
+      <div class="field">
+        <label> Prénom </label><br>
+        <%= student_form.text_field :first_name %>
+      </div>
+      <div class="field">
+        <label> Nom </label><br>
+        <%= student_form.text_field :last_name %>
+      </div>
+      <div class="field">
+        <label> Date de Date de naissance </label><br>
+        <%= student_form.date_field :year_birth %>
+      </div>
+      <div class="field">
+        <label> Code Postal </label><br>
+        <%= student_form.text_field :postal_code %>
+      </div>
+      <div class="field">
+        <label> Numéro de téléphone </label><br>
+        <%= student_form.text_field :phone_nb %>
+      </div>
+    <% end %>
   <% end %>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -42,15 +57,12 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
