@@ -3,11 +3,7 @@ class TeacherController < ApplicationController
   end
 
   def show
+    @current_teacher = current_user.teacher
   end
 
-  def new
-  end
-
-  def create
-  end
 end

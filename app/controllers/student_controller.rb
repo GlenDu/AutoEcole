@@ -4,14 +4,8 @@ class StudentController < ApplicationController
 
   end
 
-  def new
-  end
-
   def show
     @current_student = current_user.student
-  end
-
-  def create
   end
 
 end
