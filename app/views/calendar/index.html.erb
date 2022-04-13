@@ -1,4 +1,7 @@
 <h1>Calendar#index</h1>
-
-<%= @start_date %>
+<% @calendar_all.each do |date| %>
+  <% (date.start_date..date.end_date).each do |day| %><br>
+    <%= day %>
+  <% end %>
+<% end %>
 <p>Find me in app/views/calendar/index.html.erb</p>

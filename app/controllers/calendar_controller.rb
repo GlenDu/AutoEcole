@@ -1,7 +1,7 @@
 class CalendarController < ApplicationController
 
   def index
-    @start_date = Date.today
+    @calendar_all = Calendar.all
   end
 
   def new

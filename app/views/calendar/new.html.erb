@@ -3,7 +3,11 @@
 <%= form_with(model: @calendar, url: calendar_create_path) do |f| %>
 
   <div class = "field">
-    <% f.date_field :start_date == Date.today %>
+    <%= f.hidden_field :start_date, :value=> Date.today %>
+  </div>
+
+  <div class = "field">
+    <%= f.hidden_field :end_date, :value=> (Date.today + 30) %>
   </div>
 
   <div class = "field">
