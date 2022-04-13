@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_081851) do
+ActiveRecord::Schema.define(version: 2022_04_13_213659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,9 @@ ActiveRecord::Schema.define(version: 2022_04_06_081851) do
     t.date "start_date"
     t.date "end_date"
     t.string "time_slots"
-    t.bigint "lesson_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["lesson_id"], name: "index_calendars_on_lesson_id"
+    t.integer "teacher_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -51,10 +50,8 @@ ActiveRecord::Schema.define(version: 2022_04_06_081851) do
     t.string "last_name"
     t.string "phone_nb"
     t.string "description"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,7 +67,6 @@ ActiveRecord::Schema.define(version: 2022_04_06_081851) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "calendars", "lessons"
+  add_foreign_key "calendars", "teachers"
   add_foreign_key "students", "users"
-  add_foreign_key "teachers", "users"
 end

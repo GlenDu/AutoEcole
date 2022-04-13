@@ -283,7 +283,7 @@ hr::after {
   background: transparent;
   border-color: transparent;
   cursor: pointer;
-  color: var(--clr-gold);
+  color: rgb(95, 172, 127);
   transition: var(--transition);
 }
 
@@ -306,6 +306,7 @@ hr::after {
 
 .minus-icon {
   display: none;
+  color: rgb(160, 44, 44);
 }
 
 .show-text .minus-icon {
