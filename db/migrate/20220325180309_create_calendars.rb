@@ -3,7 +3,8 @@ class CreateCalendars < ActiveRecord::Migration[6.1]
     create_table :calendars do |t|
       t.date :start_date
       t.date :end_date
-      t.string :time_slots
+      t.date :week_day
+      t.date :day_date
 
       t.timestamps
     end

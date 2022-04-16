@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 2022_04_16_071016) do
   create_table "calendars", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.string "time_slots"
+    t.date "week_day"
+    t.date "day_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "teacher_id"

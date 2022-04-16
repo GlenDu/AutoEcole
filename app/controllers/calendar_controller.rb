@@ -7,7 +7,10 @@ class CalendarController < ApplicationController
 
   def new
     @current_teacher_id = current_user.teacher.id
-    @calendar = Calendar.new
+    @calendar = []
+    (Date.today..(Date.today + 31))each do |date|
+      @calendar << Calendar.new(params[week_day: date.strftime('%A'), day_date: date.day)])
+    end
   end
 
   def create
