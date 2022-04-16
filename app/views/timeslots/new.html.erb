@@ -1,2 +1,8 @@
 <h1>Timeslots#new</h1>
-<p>Find me in app/views/timeslots/new.html.erb</p>
+<%= form_with(model: @time_slots, url: timeslots_create_path) do |f| %>
+
+  <div class="form-group">
+    <%= f.submit "Create Calendar" %>
+  </div>
+
+<% end %>

@@ -17,7 +17,7 @@ class CalendarController < ApplicationController
       :day_date => iterated_day)
       calendar.save
     end
-    
+    redirect_to calendar_index_path
   end
 
   def show
