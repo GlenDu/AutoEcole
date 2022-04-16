@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'timeslots/index'
   get 'timeslots/new'
-  get 'timeslots/create'
+  post 'timeslots/create'
   get 'teacher/index'
   get 'teacher/show'
   get 'teacher/new'

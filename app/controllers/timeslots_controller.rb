@@ -1,7 +1,6 @@
 class TimeslotsController < ApplicationController
   def index
     @time_slots_all = Timeslots.all
-    @day_slots = Calendar.all
   end
 
   def new
@@ -9,7 +8,8 @@ class TimeslotsController < ApplicationController
   end
 
   def create
-    case @day_slots.week_day.strftime('%A')
+    day_slots = Calendar.all.map {|d| d.week_day.strftime('%A')}
+    case day_slots
     when "Monday"
       start_slot = morning_start + (4 * 60 ** 2 )
       end_slot = morning_start + (5 * 60 ** 2 )
