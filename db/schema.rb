@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_13_213659) do
+ActiveRecord::Schema.define(version: 2022_04_16_071016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2022_04_13_213659) do
     t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
+  create_table "timeslots", force: :cascade do |t|
+    t.string "start_slot"
+    t.string "end_slot"
+    t.bigint "teacher_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_id"], name: "index_timeslots_on_teacher_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,4 +81,5 @@ ActiveRecord::Schema.define(version: 2022_04_13_213659) do
   add_foreign_key "calendars", "teachers"
   add_foreign_key "students", "users"
   add_foreign_key "teachers", "users"
+  add_foreign_key "timeslots", "teachers"
 end
