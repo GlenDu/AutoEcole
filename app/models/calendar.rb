@@ -1,6 +1,8 @@
 class Calendar < ApplicationRecord
+=begin
   start_date = Date.today
   end_date = start_date +31
+
   Hash time_slots:
     {
       :monday=>[],
@@ -10,6 +12,7 @@ class Calendar < ApplicationRecord
       :friday=>[],
       :saturday=>[]
     }
+=end
 
   belongs_to :teacher
 end

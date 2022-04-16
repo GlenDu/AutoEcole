@@ -1,9 +1,8 @@
 <h1>Calendar#index</h1>
 <% @calendar_all.each do |date| %>
-  <% (date.start_date..date.end_date).each do |day| %><br>
-    <%= day.strftime('%A') %>
+<ul>
+  <li><%= date.week_day.strftime('%A') %></li>
+  <li><%= date.day_date.day %></li>
+</ul>
 
-    <%= day %>
-  <% end %>
-  <%= @test[1] %>
 <% end %>

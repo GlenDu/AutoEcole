@@ -2,19 +2,6 @@
 
 <%= form_with(model: @calendar, url: calendar_create_path) do |f| %>
 
-  <div class = "field">
-    <%= f.hidden_field :start_date, :value=> Date.today %>
-  </div>
-
-  <div class = "field">
-    <%= f.hidden_field :end_date, :value=> (Date.today + 30) %>
-  </div>
-
-  <div class = "field">
-    <%= f.hidden_field :teacher_id, :value=> @current_teacher_id %>
-  </div>
-
-
   <div class="form-group">
     <%= f.submit "Create Calendar", class: "btn btn-primary" %>
   </div>
