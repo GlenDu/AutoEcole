@@ -2,10 +2,8 @@
 <%= @day_slots %>
 <% @time_slots_all.each do |time_slots| %>
   <ul>
-    <%# time_slots.start_slot.each do |day_slots| %>
-      <li></li>
-      <li></li>
-      <li></li>
-    <% end %>
+    <li><%= time_slots.teacher_id %></li>
+    <li><%= time_slots.start_slot %></li>
+    <li><%= time_slots.end_slot %></li>
   </ul>
 <% end %>
