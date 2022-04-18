@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 2022_04_16_071016) do
   create_table "calendars", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.date "week_day"
-    t.date "day_date"
+    t.date "reference_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "teacher_id"
@@ -61,8 +60,10 @@ ActiveRecord::Schema.define(version: 2022_04_16_071016) do
     t.string "start_slot"
     t.string "end_slot"
     t.bigint "teacher_id", null: false
+    t.bigint "calendar_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_timeslots_on_calendar_id"
     t.index ["teacher_id"], name: "index_timeslots_on_teacher_id"
   end
 
@@ -82,5 +83,6 @@ ActiveRecord::Schema.define(version: 2022_04_16_071016) do
   add_foreign_key "calendars", "teachers"
   add_foreign_key "students", "users"
   add_foreign_key "teachers", "users"
+  add_foreign_key "timeslots", "calendars"
   add_foreign_key "timeslots", "teachers"
 end

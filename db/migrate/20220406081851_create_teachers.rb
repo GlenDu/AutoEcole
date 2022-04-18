@@ -6,7 +6,7 @@ class CreateTeachers < ActiveRecord::Migration[6.1]
       t.string :phone_nb
       t.string :description
 
-      t.references :user, null: false, foreign_key: true
+      t.belongs_to :user, null: false, foreign_key: true
       t.timestamps
     end
   end

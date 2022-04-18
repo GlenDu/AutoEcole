@@ -2,6 +2,7 @@ class TimeslotsController < ApplicationController
   before_action :check_teacher, except: [:index]
   def index
     @time_slots_all = Timeslot.all
+    @calendar_week_day = Calendar.all
   end
 
   def new

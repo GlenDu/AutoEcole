@@ -5,3 +5,39 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+def user_create
+  2.times do
+    User.create!(email: Faker::Internet.email, password: "aaaaaa", admin: false)
+  end
+end
+
+def teacher_create
+  Teacher.create(first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_nb: "062",
+    description: "prof auto",
+    user_id: User.first.id)
+end
+
+def student_create
+  Student.create(first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_nb: "061111",
+    postal_code: "2000",
+    user_id: User.last.id)
+end
+
+def destroy_all_models
+  Timeslot.destroy_all
+  Calendar.destroy_all
+  Teacher.destroy_all
+  Student.destroy_all
+  User.destroy_all
+end
+
+destroy_all_models
+user_create
+teacher_create
+student_create
