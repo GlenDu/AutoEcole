@@ -1,9 +1,12 @@
 <h1>Timeslots#index</h1>
-<%= @day_slots %>
+
 <% @time_slots_all.each do |time_slots| %>
   <ul>
-    <li><%= time_slots.teacher_id %></li>
-    <li><%= time_slots.start_slot %></li>
-    <li><%= time_slots.end_slot %></li>
+    <li><p><%= time_slots.calendar.reference_day.strftime('%A') %>, le
+    <%= time_slots.calendar.reference_day %></li>
+    <li><p> La conduite avec monsieur
+    <%= time_slots.teacher.last_name %> commence à <%= time_slots.start_slot %>:00
+    heure et ça termine à <%= time_slots.end_slot %>:00 heure</p></li>
+    <p> Vous pouvez sélectionner cette conduite!</p> <br>
   </ul>
 <% end %>
