@@ -1,4 +1,5 @@
 class CalendarController < ApplicationController
+  before_action :check_teacher, except: [:index]
 
   def index
     @calendar_all = Calendar.all
@@ -19,7 +20,11 @@ class CalendarController < ApplicationController
     redirect_to calendar_index_path
   end
 
-  def show
+  private
+  def check_teacher
+    unless current_user.teacher
+        redirect_to '/', :alert => "Don't have permission!"
+    end
   end
 
 end
