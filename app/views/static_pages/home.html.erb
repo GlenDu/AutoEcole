@@ -20,8 +20,12 @@
           <div class="sub-menu">
             <%= link_to "Accueil", accueille_path%>
             <%= link_to "Permis Auto", permis_auto_path %>
-            <%= link_to "Permis Moto", permis_moto_path %>
             <%= link_to "Le Code en ligne", home_path %>
+            <% if user_signed_in? %>
+              <%= link_to "Mon Profile", student_show_path %>
+            <% else %>
+              <%= link_to "Mon Profile", new_user_session_path %>
+            <% end %>
             <%=link_to "Contact", contact_path %>
           </div>
         </nav>

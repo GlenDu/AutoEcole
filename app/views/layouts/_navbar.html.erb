@@ -5,8 +5,12 @@
     </div>
     <%= link_to "Accueille", accueille_path%>
     <%= link_to "Permis Auto", permis_auto_path %>
-    <%= link_to "Permis Moto", permis_moto_path %>
-    <%= link_to "Le Code en ligne", student_show_path %>
+    <%= link_to "Le Code en ligne", accueille_path %>
+    <% if user_signed_in? %>
+      <%= link_to "Mon Profile", student_show_path %>
+    <% else %>
+      <%= link_to "Mon Profile", new_user_session_path %>
+    <% end %>
     <%=link_to "Contact", contact_path %>
 
     <div class="menu-container">
@@ -17,9 +21,12 @@
           
           <div class="menu-list">
             <nav id="menu-nav">
-              <%= link_to "Log in", user_session_path %>
-              <%= link_to "Inscription", new_user_registration_path %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              <% if !user_signed_in? %>
+                <%= link_to "Log in", user_session_path %>
+                <%= link_to "Inscription", new_user_registration_path %>
+              <% else %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              <% end %>
             </nav>
           </div>
         </div>

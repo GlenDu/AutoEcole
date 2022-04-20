@@ -1,5 +1,7 @@
-<h1>Student#show</h1>
-<p>Find me in app/views/student/show.html.erb</p>
-
-<%= @current_student.first_name %>
-<%= @current_student.last_name %>
+<h1>Student#show</h1><br><br>
+<p> Bienvenue monsieur
+  <%= @current_student.first_name %>
+  <%= @current_student.last_name %>
+</p>
+<p> Si vous voulez voir les heures de cours disponibles
+  <%= link_to "Calendrier", timeslots_index_path %>
