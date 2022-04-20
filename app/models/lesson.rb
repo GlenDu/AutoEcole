@@ -1,4 +1,5 @@
 class Lesson < ApplicationRecord
-    #has_many :clandars #!!!
-    #belongs_to :teacher
+  belongs_to :student
+  belongs_to :teacher
+  has_many :timeslots
 end

@@ -3,7 +3,9 @@
 one:
   start_slot: MyString
   end_slot: MyString
+  remark: MyText
 
 two:
   start_slot: MyString
   end_slot: MyString
+  remark: MyText
