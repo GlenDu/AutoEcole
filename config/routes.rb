@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get 'teacher/new'
   get 'student/index'
   get 'student/show'
+  namespace :admin do
+    resources :students, only: [:new, :edit, :create, :destroy, :update, :index]
+    resources :calendar, only: [:new, :edit, :create, :destroy, :update]
+  end
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }

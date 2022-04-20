@@ -1,7 +1,8 @@
 <h1>Student#show</h1><br><br>
 <p> Bienvenue monsieur
   <%= @current_student.first_name %>
-  <%= @current_student.last_name %>
+  <%= @current_student.last_name %><br>
+  Vous avez: <%= @current_student.credits %> credits
 </p>
 <p> Si vous voulez voir les heures de cours disponibles
   <%= link_to "Calendrier", timeslots_index_path %>

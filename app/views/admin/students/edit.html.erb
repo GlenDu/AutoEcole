@@ -1,0 +1,7 @@
+<h3> Ajoutter des credits à un des students </h3>
+
+<%= form_with model:[:admin, @edit_student] do |f| %>
+  <p>Number de credits que vous voulez ajouter</p>
+  <%= f.number_field :credits %><br><br>
+  <%= f.submit 'Ajouter les credits' %><br><br>
+<% end %>
