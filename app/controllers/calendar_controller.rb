@@ -1,13 +1,16 @@
 class CalendarController < ApplicationController
-  before_action :check_teacher, except: [:index]
+  before_action :check_teacher, except: [:index, :show]
 
   def index
     @calendar_all = Calendar.all
   end
 
+  def show
+    #@calendar_selected = Calendar.find(params[:id])
+  end
+
   def new
     @calendar = Calendar.new
-    @current_teacher_id = current_user.teacher.id
   end
 
   def create
@@ -25,6 +28,10 @@ class CalendarController < ApplicationController
     unless current_user.teacher
         redirect_to '/', :alert => "Don't have permission!"
     end
+  end
+
+  def select_calendar
+    params.require(:calendar).permit(:credits)
   end
 
 end

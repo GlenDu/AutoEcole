@@ -1,4 +1,5 @@
 class Admin::StudentsController < ApplicationController
+  before_action :authenticate_admin
 
   def index
     @list_students = Student.all
@@ -6,7 +7,6 @@ class Admin::StudentsController < ApplicationController
 
   def edit
     @edit_student = Student.find(params[:id])
-
   end
 
   def update
