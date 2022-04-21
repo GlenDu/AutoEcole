@@ -1,9 +1,19 @@
-<h1>Calendar#index</h1>
-<% @calendar_all.each do |date| %>
-<ul>
-  <h4><li><%= date.reference_day.strftime('%B') %></li></h4>
-  <li><%= date.reference_day.strftime('%A') %></li>
-  <li><%= date.reference_day.day %></li>
-</ul>
+<h2 style>Calendrier, Selectionez votre cours </h2>
 
-<% end %>
+<div class="wrapper-calendar">
+  <% @calendar_all.each do |date| %>
+    <div class="calendar-cell">
+      <ul>
+        <h5><%= date.reference_day.strftime('%A, %d - %B') %></h5>
+      </ul>
+      <% if date.reference_day.strftime('%A') == "Sunday" %>
+        <h6> Fermé!<br> Pas de cours </h6>
+      <% else %>
+        <% date.timeslots.each do |time_slots| %>
+          <%= time_slots.start_slot %>:00 -
+          <%= time_slots.end_slot %>:00<br>
+        <% end %><br>
+      <% end %>
+    </div>
+  <% end %>
+</div>
