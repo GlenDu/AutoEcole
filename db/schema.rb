@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2022_04_20_204932) do
     t.date "date"
     t.text "remark"
     t.bigint "student_id", null: false
-    t.bigint "teacher_id", null: false
+    t.bigint "timeslot_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["student_id"], name: "index_lessons_on_student_id"
-    t.index ["teacher_id"], name: "index_lessons_on_teacher_id"
+    t.index ["timeslot_id"], name: "index_lessons_on_timeslot_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -62,13 +62,11 @@ ActiveRecord::Schema.define(version: 2022_04_20_204932) do
   create_table "timeslots", force: :cascade do |t|
     t.string "start_slot"
     t.string "end_slot"
-    t.bigint "lesson_id"
     t.bigint "teacher_id", null: false
     t.bigint "calendar_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["calendar_id"], name: "index_timeslots_on_calendar_id"
-    t.index ["lesson_id"], name: "index_timeslots_on_lesson_id"
     t.index ["teacher_id"], name: "index_timeslots_on_teacher_id"
   end
 
@@ -87,10 +85,9 @@ ActiveRecord::Schema.define(version: 2022_04_20_204932) do
 
   add_foreign_key "calendars", "teachers"
   add_foreign_key "lessons", "students"
-  add_foreign_key "lessons", "teachers"
+  add_foreign_key "lessons", "timeslots"
   add_foreign_key "students", "users"
   add_foreign_key "teachers", "users"
   add_foreign_key "timeslots", "calendars"
-  add_foreign_key "timeslots", "lessons"
   add_foreign_key "timeslots", "teachers"
 end

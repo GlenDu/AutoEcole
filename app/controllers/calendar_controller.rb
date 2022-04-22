@@ -3,10 +3,11 @@ class CalendarController < ApplicationController
 
   def index
     @calendar_all = Calendar.all
+    #Lesson.new(:student_id current_user.student.id, :timeslot select_timeslot)
   end
 
   def show
-    #@calendar_selected = Calendar.find(params[:id])
+    @calendar_selected = Calendar.find_by(params[:id])
   end
 
   def new
@@ -31,7 +32,11 @@ class CalendarController < ApplicationController
   end
 
   def select_calendar
-    params.require(:calendar).permit(:credits)
+    params.require(:calendar).permit(:id)
+  end
+
+  def select_timeslot
+    params.require(:timeslot).permit(:end_slot)
   end
 
 end

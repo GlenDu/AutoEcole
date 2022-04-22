@@ -2,7 +2,7 @@
 
 <div class="wrapper-calendar">
   <% @calendar_all.each do |date| %>
-    <%= link_to calendar_show_path(date.id) do %>
+    <%#= link_to calendar_show_path(date.id) do %>
       <div class="calendar-cell">
         <ul>
           <h5><%= date.reference_day.strftime('%A, %d - %B') %></h5>
@@ -10,13 +10,16 @@
         <% if date.reference_day.strftime('%A') == "Sunday" %>
           <h6> Fermé!<br> Pas de cours </h6>
         <% else %>
-          <% date.timeslots.each do |time_slots| %>
-          <% form_with %>
-            <%= time_slots.start_slot %>:00 -
-            <%= time_slots.end_slot %>:00<br>
+          <%= form_with(model: date.timeslots , url: lesson_show_path) do |f| %>
+            <% date.timeslots.each do |time_slot| %>
+              <%= f.radio_button :end_slot, 'Selectionez' %>
+              <%= time_slot.start_slot %>:00 -
+              <%= time_slot.end_slot %>:00<br>
+            <% end %><br>
+            <%= f.submit 'Ajouter les crénaux' %><br><br>
           <% end %>
         <% end %>
       </div>
-    <% end %>
+    <%# end %>
   <% end %>
 </div>
