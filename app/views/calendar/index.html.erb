@@ -10,13 +10,14 @@
         <% if date.reference_day.strftime('%A') == "Sunday" %>
           <h6> Fermé!<br> Pas de cours </h6>
         <% else %>
-          <%= form_with(model: date.timeslots , url: lesson_show_path) do |f| %>
-            <% date.timeslots.each do |time_slot| %>
-              <%= f.radio_button :end_slot, 'Selectionez' %>
+            <% date.timeslots.map do |time_slot| %>
+          <%= form_with(model: @time_slots_all) do |f| %>
+              <%= f.radio_button :id, :checked => true %>
+              <%#= f.hidden_field :id %>
               <%= time_slot.start_slot %>:00 -
               <%= time_slot.end_slot %>:00<br>
+            <%= f.submit 'Ajouter' %><br><br>
             <% end %><br>
-            <%= f.submit 'Ajouter les crénaux' %><br><br>
           <% end %>
         <% end %>
       </div>

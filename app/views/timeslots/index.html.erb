@@ -1,5 +1,7 @@
 <h1>Timeslots#index</h1>
 
+<%= @timeslot_selected_id %>
+
 <% @time_slots_all.each do |time_slots| %>
   <ul>
     <li><p><%= time_slots.calendar.reference_day.strftime('%A') %>, le

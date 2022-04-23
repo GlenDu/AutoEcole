@@ -11,7 +11,7 @@ class TimeslotsController < ApplicationController
   end
 
   def create
-    Calendar.all.each do |calendar|
+      Calendar.all.each do |calendar|
       day = calendar.reference_day.strftime('%A')
       if day == "Monday"
         (0..length1).each do |x|

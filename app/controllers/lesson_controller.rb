@@ -11,7 +11,7 @@ class LessonController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @lesson = Lesson.new(:student_id current_user.student.id, :timeslot_id @timeslot_selected_id)
     if @lesson.save
       redirect_to lesson_index_path
     else
@@ -22,6 +22,6 @@ class LessonController < ApplicationController
 
   private
   def lesson_params
-    params.require(:lesson).permit(:remark1, :start_lesson, :end_lesson, :date )
+    #params.require(:timeslot).permit(:id)
   end
 end

@@ -3,11 +3,10 @@ class CalendarController < ApplicationController
 
   def index
     @calendar_all = Calendar.all
-    #Lesson.new(:student_id current_user.student.id, :timeslot select_timeslot)
+    @timeslot_selected_id = Timeslot.find_by(params[:id]).id
   end
 
   def show
-    @calendar_selected = Calendar.find_by(params[:id])
   end
 
   def new
@@ -29,14 +28,6 @@ class CalendarController < ApplicationController
     unless current_user.teacher
         redirect_to '/', :alert => "Don't have permission!"
     end
-  end
-
-  def select_calendar
-    params.require(:calendar).permit(:id)
-  end
-
-  def select_timeslot
-    params.require(:timeslot).permit(:end_slot)
   end
 
 end
