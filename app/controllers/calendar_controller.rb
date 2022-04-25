@@ -3,10 +3,10 @@ class CalendarController < ApplicationController
 
   def index
     @calendar_all = Calendar.all
-    @timeslot_selected_id = Timeslot.find_by(params[:id]).id
   end
 
   def show
+    @calendar_selected = Calendar.find(params[:id])
   end
 
   def new

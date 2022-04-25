@@ -1,3 +1,12 @@
-<p> Selectionez votre crenaux </p>
 
-<h5><%= @calendar_selected.reference_day.strftime('%A, %d - %B') %></h5>
+<div class="calendar-cell">
+  <ul>
+    <h5><%= @calendar_selected.reference_day.strftime('%A, %d - %B') %></h5>
+  </ul>
+    <% @calendar_selected.timeslots.map do |time_slot| %>
+      <%= link_to lesson_index_path(timeslot_id: time_slot.id), method: :post do %>
+        <%= time_slot.start_slot %>:00 -
+        <%= time_slot.end_slot %>:00<br>
+    <% end %><br>
+  <% end %>
+</div>

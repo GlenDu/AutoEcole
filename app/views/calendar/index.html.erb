@@ -2,7 +2,7 @@
 
 <div class="wrapper-calendar">
   <% @calendar_all.each do |date| %>
-    <%#= link_to calendar_show_path(date.id) do %>
+    <%= link_to calendar_path(date.id) do %>
       <div class="calendar-cell">
         <ul>
           <h5><%= date.reference_day.strftime('%A, %d - %B') %></h5>
@@ -11,13 +11,13 @@
           <h6> Fermé!<br> Pas de cours </h6>
         <% else %>
           <% date.timeslots.map do |time_slot| %>
-            <%= link_to lesson_index_path(timeslot_id: time_slot.id), method: :post do %>
+            <%#= link_to lesson_index_path(timeslot_id: time_slot.id), method: :post do %>
               <%= time_slot.start_slot %>:00 -
               <%= time_slot.end_slot %>:00<br>
-            <% end %>
+            <%# end %>
           <% end %><br>
         <% end %>
       </div>
-    <%# end %>
+    <% end %>
   <% end %>
 </div>

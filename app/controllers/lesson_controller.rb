@@ -13,7 +13,5 @@ class LessonController < ApplicationController
   end
 
   private
-  def lesson_params
-    #params.require(:timeslot).permit(:id)
-  end
+
 end
