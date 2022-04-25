@@ -19,10 +19,7 @@ Rails.application.routes.draw do
   resources :static_pages
   root to: "static_pages#home"
 
-  get 'lesson/index'
-  get 'lesson/show'
-  post 'lesson/create'
-  get 'lesson/new'
+  resources :lesson, only: [:create]
   get 'calendar/index'
   post 'calendar/create'
   get 'calendar/new'

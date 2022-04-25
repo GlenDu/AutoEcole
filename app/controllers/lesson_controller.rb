@@ -1,22 +1,14 @@
 class LessonController < ApplicationController
-  def new
-    @lesson = Lesson.new
-  end
-  
-  def index
-    @all_lessons = Lesson.all
-  end
 
   def show
   end
 
   def create
-    @lesson = Lesson.new(:student_id current_user.student.id, :timeslot_id @timeslot_selected_id)
-    if @lesson.save
-      redirect_to lesson_index_path
+    create_lesson = Lesson.new(student_id: current_user.student.id, timeslot_id: params[:timeslot_id])
+    if create_lesson.save
+      redirect_to student_show_path
     else
-      render 'new'
-      flash[:notice] = "Lesson non sauvegardé"
+      flash["error"] = "Vous n'avez pas crée la lesson"
     end
   end
 

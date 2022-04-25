@@ -4,6 +4,16 @@
   <%= @current_student.last_name %><br>
   Vous avez: <%= @current_student.credits %> credits
 </p>
+<p> Vos cours sont:<br>
+__________________________<br>
+  <% (0..@length).each do |i| %>
+    <%= @lesson[i].timeslot.calendar.reference_day.strftime('%A-%D') %><br>
+    cours <%= i+1 %>: <%= @lesson[i].timeslot.start_slot %>:00 -
+    <%= @lesson[i].timeslot.end_slot %>:00<br>
+__________________________<br>
+  <% end %>
+</p>
+
 <p> Si vous voulez voir les heures de cours disponibles
   <%= link_to "Calendrier", timeslots_index_path %>
 </p>

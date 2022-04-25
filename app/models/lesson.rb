@@ -1,4 +1,4 @@
 class Lesson < ApplicationRecord
   belongs_to :student
-  has_many :timeslots
+  belongs_to :timeslot
 end
