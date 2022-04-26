@@ -9,6 +9,7 @@ class LessonController < ApplicationController
       flash[:erreur] = "Erreur, vous n'avez pas assez des credits pour le créneau !"
       redirect_to calendar_index_path
     elsif create_lesson.save
+      current_user.student.update({credits: current_user.student.credits-1})
       redirect_to student_show_path
     else
       flash["error"] = "Vous n'avez pas crée la lesson"
