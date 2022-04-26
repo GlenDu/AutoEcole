@@ -8,25 +8,29 @@
 require 'faker'
 
 def user_create
-  2.times do
+  6.times do
     User.create!(email: Faker::Internet.email, password: "aaaaaa", admin: false)
   end
 end
 
 def teacher_create
-  Teacher.create(first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_nb: "062",
-    description: "prof auto",
-    user_id: User.first.id)
+  (1..2).each do |i|
+    Teacher.create(first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      phone_nb: "062",
+      description: "prof auto",
+      user_id: User(parms[id: i]))
+  end
 end
 
 def student_create
-  Student.create(first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_nb: "061111",
-    postal_code: "2000",
-    user_id: User.last.id)
+  (3..6).each do |i|
+    Student.create(first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      phone_nb: "061111",
+      postal_code: "2000",
+      user_id: User(parms[id: i]))
+  end
 end
 
 def destroy_all_models
