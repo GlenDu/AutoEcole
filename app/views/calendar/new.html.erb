@@ -1,8 +1,12 @@
 <h3> New calendar</h3>
 
-<%= form_with(model: @calendar, url: calendar_create_path) do |f| %>
+<%= form_with(model: @calendar, url: calendar_index_path) do |f| %>
 
   <div class="form-group">
+    <label> Selectez le début de votre calendar</label>
+    <%= f.date_select :start_date, :order => [:day, :month, :year] %><br>
+    <label> Selectez le dernièr jour de votre calendar</label>
+    <%= f.date_select :end_date, :order => [:day, :month, :year] %><br>
     <%= f.submit "Create Calendar" %>
   </div>
 
