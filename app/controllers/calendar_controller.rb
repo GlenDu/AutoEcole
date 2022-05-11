@@ -3,6 +3,7 @@ class CalendarController < ApplicationController
 
   def index
     @calendar_all = Calendar.all
+    #Calendar.where(:all, conditions: [@calendar_all.reference_day < Date.today])
   end
 
   def show

@@ -4,6 +4,7 @@ class TimeslotsController < ApplicationController
   def index
     @time_slots_all = Timeslot.all
     @calendar_week_day = Calendar.all
+    #Timeslot.find(:all, :conditions => [@time_slots_all.start_slot < Time.now])
   end
 
   def new
@@ -42,6 +43,10 @@ class TimeslotsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+
   end
 
   private
