@@ -45,10 +45,6 @@ class TimeslotsController < ApplicationController
     end
   end
 
-  def destroy
-
-  end
-
   private
   def check_teacher
     unless current_user.teacher
