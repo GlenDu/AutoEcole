@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'teacher/new'
   get 'student/index'
   get 'student/show'
+  get 'admin/show'
   namespace :admin do
     resources :students, only: [:new, :edit, :create, :destroy, :update, :index]
     resources :calendar, only: [:new, :edit, :create, :destroy, :update]

@@ -6,11 +6,14 @@
     <%= link_to "Accueille", accueille_path%>
     <%= link_to "Permis Auto", permis_auto_path %>
     <%= link_to "Le Code en ligne", accueille_path %>
-    <% if user_signed_in? %>
+    <% if current_user.admin == true %>
+    <%= link_to "Mon Profile", admin_students_path %>
+    <% elsif user_signed_in? %>
       <%= link_to "Mon Profile", student_show_path %>
     <% else %>
       <%= link_to "Mon Profile", new_user_session_path %>
     <% end %>
+    <%= link_to "Calendrier", calendar_index_path %>
     <%=link_to "Contact", contact_path %>
 
     <div class="menu-container">

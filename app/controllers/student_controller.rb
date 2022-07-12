@@ -3,7 +3,7 @@ class StudentController < ApplicationController
   before_action :check_student, except: [:index]
 
   def index
-
+    @students = Student.all
   end
 
   def show
@@ -16,7 +16,7 @@ class StudentController < ApplicationController
   end
   private
   def check_student
-    unless current_user.student
+    unless current_user.student || current_user.admin == true
         redirect_to '/', :alert => "Don't have permission!"
     end
   end
