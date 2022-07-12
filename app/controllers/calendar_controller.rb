@@ -6,6 +6,7 @@ class CalendarController < ApplicationController
   end
 
   def show
+    @lessons = Lesson.all
     @calendar_selected = Calendar.find(params[:id])
   end
 
