@@ -1,5 +1,11 @@
 <h3> Tous les utilisateurs </h3>
 
+<h4> Création de nouveau dates dans le calendrie:
+<%= link_to "Créer nouveaux dates", new_calendar_path %><br/></h4>
+<h4> Création des crénaux:
+<%= link_to "Créer des crénaux", timeslots_new_path %><br/></h4><br/><br/>
+<p>_____________________________________________________________
+_________________________________________________________</p>
 <% @list_students.each do |student|%>
   <p> Le nom de l'étudiant
     <%= student.first_name %>

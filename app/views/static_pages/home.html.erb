@@ -22,7 +22,11 @@
             <%= link_to "Permis Auto", permis_auto_path %>
             <%= link_to "Le Code en ligne", home_path %>
             <% if user_signed_in? %>
-              <%= link_to "Mon Profile", student_show_path %>
+              <% if current_user.admin != true %>
+                <%= link_to "Mon Profile", student_show_path %>
+              <% elsif current_user.admin == true%>
+                <%= link_to "Profile Admin", admin_students_path %>
+              <% end %>
             <% else %>
               <%= link_to "Mon Profile", new_user_session_path %>
             <% end %>
