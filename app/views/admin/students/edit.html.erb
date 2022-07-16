@@ -1,4 +1,5 @@
-<h3> Ajoutter des credits à un des students </h3>
+<h3> Ajoutter des credits à mensieur
+  <%= @edit_student.last_name %> <%= @edit_student.first_name %> </h3>
 
 <%= form_with model:[:admin, @edit_student] do |f| %>
   <p>Number de credits que vous voulez ajouter</p>

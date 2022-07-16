@@ -28,10 +28,10 @@
           <div class="menu-list">
             <nav id="menu-nav">
               <% if !user_signed_in? %>
-                <%= link_to "Log in", user_session_path %>
+                <%= link_to "Se connecter", user_session_path %>
                 <%= link_to "Inscription", new_user_registration_path %>
               <% else %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
               <% end %>
             </nav>
           </div>

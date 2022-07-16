@@ -1,8 +1,11 @@
-<h1>Timeslots#new</h1>
+<h1>Lancer les créneaux</h1><br/>
 <%= form_with(model: @time_slots, url: timeslots_create_path) do |f| %>
 
   <div class="form-group">
-    <%= f.submit "Create Time slots" %>
+    <%= f.submit "Créer les créneaux" %>
   </div>
+
+  <h4> La Création des créneaux va se faire automatiquement
+      selon les horaires officiles de chaque jour </h4><br/><br/>
 
 <% end %>

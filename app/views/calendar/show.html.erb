@@ -6,7 +6,7 @@
 
   <% @calendar_selected.timeslots.map do |time_slot| %>
     <% if @lessons.detect {|lesson| lesson.timeslot_id == time_slot.id} %>
-        <p> Lesson allredy reserved<br/>
+        <p> Cours réservé<br/>
           <%= time_slot.start_slot %>:00 -
           <%= time_slot.end_slot %>:00<br>
         </p>
