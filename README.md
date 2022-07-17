@@ -8,6 +8,7 @@
 2. L'étudaiant (student). Il peut sélectionner les crénaux quand il veut faire un cours de conduite, vérifier son profile ou il y aura affiché les séances et les crédits qui lui restent. Les cours déjà reservés ne peuvent plus être selectionné par les autres 'students'. Quand le cours dépasse le jour actuell n'apparait plus
 
 3. Le Proffesseur (teacher). Seulment lui (et l'admin) peut créer les jours et les créneaux. Lui ne peut pas ajoutter des crédits au étudiant (student).
+L'Etudiant peut suprimer les cours qu'il a déjà reservé, à condition que la datte soit superieur à deux jours, sinon il ne peut plus les supprimer.
 
   * Le bouton profile dirige vers *'login'* si on est pas connecté. Si la personne est un student il va diriger vers le profil student et dans la page admin si la personne est un admin.
 

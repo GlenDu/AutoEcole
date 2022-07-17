@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :static_pages
   root to: "static_pages#home"
 
-  resources :lesson, only: [:create]
+  resources :lesson, only: [:create, :destroy]
   resources :calendar, only: [:index, :create, :new, :show]
   get 'home', to: 'static_pages#home'
   get 'accueille', to: 'static_pages#accueille'

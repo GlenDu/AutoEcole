@@ -12,8 +12,6 @@ class StudentController < ApplicationController
     @length = @lesson.length - 1
   end
 
-  def edit
-  end
   private
   def check_student
     unless current_user.student || current_user.admin == true

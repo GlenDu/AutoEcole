@@ -6,12 +6,19 @@
 </p>
 <p> Vos cours sont:<br>
 __________________________<br>
-  <% (0..@length).each do |i| %>
-    <%= @lesson[i].timeslot.calendar.reference_day.strftime('%A-%D') %><br>
-    cours <%= i+1 %>: <%= @lesson[i].timeslot.start_slot %>:00 -
-    <%= @lesson[i].timeslot.end_slot %>:00<br>
-__________________________<br>
+  <% @lesson.each_with_index do |lesson, i| %>
+    <%= lesson.timeslot.calendar.reference_day.strftime('%A-%D') %><br/>
+    cours <%= i+1 %>:
+    <%= lesson.timeslot.start_slot %>:00-
+    <%= lesson.timeslot.end_slot %>:00<br/>
+    <%= lesson.timeslot.calendar.reference_day %><br/>
+    <% if  Date.today + 2  <=  lesson.timeslot.calendar.reference_day %><br/>
+      <%= link_to "Supprimer le cours", lesson, method: :delete, data: { confirm: 'Êtes vous sûr de supprimer?' } %><br/><br/>
+    <% else %>
+      <p style="color: #FF0000";> Vous ne pouvez plus supprimer le cours que vous avez reservé </p>
+    <% end %>
   <% end %>
+__________________________<br>
 </p>
 
 <p> Si vous voulez voir les heures de cours disponibles
