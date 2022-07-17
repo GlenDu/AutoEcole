@@ -9,7 +9,6 @@ class StudentController < ApplicationController
   def show
     @current_student = current_user.student
     @lesson = Lesson.where(student_id: current_user.student.id)
-    @length = @lesson.length - 1
   end
 
   private

@@ -18,7 +18,10 @@ class LessonController < ApplicationController
 
   def destroy
     @lesson = Lesson.find(params[:id])
-    @lesson.destroy
+    if @lesson.destroy
+      current_user.student.update({credits: current_user.student.credits+1})
+      redirect_to student_show_path
+    end
   end
 
   private

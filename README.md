@@ -3,14 +3,18 @@
 
 ## L'application a Troi parties importantes:
 
-1. L'admin, Il(s) peut selectionner l'étudiant et lui ajoutter des crédits, créer les jours des cours et les créneaux. les créneaux s'adaptent automatiquement à la spécificité du jour.
+1. L'admin, Il(s) peut sélectionner  l'étudiant et lui ajouter des crédits, créer les jours des cours et les créneaux. les créneaux s'adaptent automatiquement à la spécificité du jour.
 
-2. L'étudaiant (student). Il peut sélectionner les crénaux quand il veut faire un cours de conduite, vérifier son profile ou il y aura affiché les séances et les crédits qui lui restent. Les cours déjà reservés ne peuvent plus être selectionné par les autres 'students'. Quand le cours dépasse le jour actuell n'apparait plus
+2. L'étudaiant (student). Il peut sélectionner les créneaux quand il veut faire un cours de conduite, vérifier son profile ou il y aura affiché les séances et les crédits qui lui restent. Les cours déjà réservés ne peuvent plus être sélectionné par les autres 'students'. Quand le cours dépasse n'est plus à jour, il  n'apparait plus.
 
-3. Le Proffesseur (teacher). Seulment lui (et l'admin) peut créer les jours et les créneaux. Lui ne peut pas ajoutter des crédits au étudiant (student).
-L'Etudiant peut suprimer les cours qu'il a déjà reservé, à condition que la datte soit superieur à deux jours, sinon il ne peut plus les supprimer.
+- L'Étudiant peut supprimer les cours qu'il a déjà réservées, mais pas les cours dans les prochaines 48 heures, sinon il ne peut plus les supprimer.
 
-  * Le bouton profile dirige vers *'login'* si on est pas connecté. Si la personne est un student il va diriger vers le profil student et dans la page admin si la personne est un admin.
+- Le crédit de l'étudaint baisse quand il réserve une séance et augmente quand il l'annule. 
+
+3. Le Professeur (teacher). Seulement lui (et l'admin) peut créer les jours et les créneaux. Lui ne peut pas ajouter des crédits à l'étudiant (student).
+
+
+  * Le bouton profile dirige vers *'login'* si on n'est pas connecté. Si la personne est un student il va le diriger vers le profil student et dans la page admin si la personne est un admin.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
