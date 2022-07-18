@@ -1,6 +1,6 @@
 # README
 
-link: https://heroku.com/apps/autoecole-alpha
+link: https://autoecole-alpha.herokuapp.com
 ## L'application a Troi parties importantes:
 
 1. L'admin, Il(s) peut sélectionner  l'étudiant et lui ajouter des crédits, créer les jours des cours et les créneaux. les créneaux s'adaptent automatiquement à la spécificité du jour.
