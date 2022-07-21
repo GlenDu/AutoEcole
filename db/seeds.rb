@@ -19,7 +19,7 @@ def teacher_create
       last_name: Faker::Name.last_name,
       phone_nb: "062",
       description: "prof auto",
-      user_id: User(parms[id: i]))
+      user_id: User(params[id: i]))
   end
 end
 
@@ -29,7 +29,7 @@ def student_create
       last_name: Faker::Name.last_name,
       phone_nb: "061111",
       postal_code: "2000",
-      user_id: User(parms[id: i]))
+      user_id: User(params[id: i]))
   end
 end
 
