@@ -13,6 +13,7 @@ class Admin::StudentsController < ApplicationController
     @edit_student = Student.find(params[:id])
     if @edit_student.update(ajoutter_credits)
       flash[:success] = "Les credits ont été ajoutté!"
+      redirect_to admin_students_path
     else
       flash[:erreur] = "Credits n'ont pas été ajoutté!"
       render 'edit'
