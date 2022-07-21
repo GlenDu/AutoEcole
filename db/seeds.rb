@@ -14,22 +14,22 @@ def user_create
 end
 
 def teacher_create
-  (1..2).each do |i|
+  User.ids[0..1].each do |i|
     Teacher.create(first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       phone_nb: "062",
       description: "prof auto",
-      user_id: User(params[id: i]))
+      user_id: User.find(i).id
   end
 end
 
 def student_create
-  (3..6).each do |i|
+  User.ids[2..5].each do |i|
     Student.create(first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       phone_nb: "061111",
-      postal_code: "2000",
-      user_id: User(params[id: i]))
+      postal_code: "67000",
+      user_id: User.find(i).id
   end
 end
 

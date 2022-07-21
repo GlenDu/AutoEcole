@@ -26,7 +26,7 @@ class CalendarController < ApplicationController
 
   private
   def check_teacher
-    unless current_user.teacher = true
+    unless current_user.teacher == true
       redirect_to '/', :alert => "Don't have permission!"
     end
   end
