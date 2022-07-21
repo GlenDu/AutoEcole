@@ -1,6 +1,5 @@
 # README
 
-https://autoecole-alpha.herokuapp.com/
 
 ## L'application a Troi parties importantes:
 
