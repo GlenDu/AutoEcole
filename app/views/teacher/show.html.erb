@@ -1,5 +1,10 @@
 <h1>Teacher#show</h1>
 <p>Find me in app/views/teacher/show.html.erb</p>
 
+<h4> Bienvenue Monsieur:
 <%= @current_teacher.first_name %>
-<%= @current_teacher.last_name %>
+<%= @current_teacher.last_name %></h4><br/>
+<h5> Si vous voulez créer un caldndrier:
+cliquez ici: <%= link_to "Calendrier", new_calendar_path %><br/>
+Et si vous voulez lancer les créneaux: <%= link_to "Crénaux", timeslots_new_path %>
+</h5>

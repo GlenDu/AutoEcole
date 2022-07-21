@@ -8,9 +8,11 @@
     <%= link_to "Le Code en ligne", accueille_path %>
 
     <% if user_signed_in? %>
-      <% if current_user.admin != true %>
+      <% if current_user.teacher != nil %>
+        <%= link_to "Profil Professeur", teacher_show_path %>
+      <% elsif current_user.admin != true %>
         <%= link_to "Mon Profile", student_show_path %>
-      <% elsif current_user.admin == true%>
+      <% elsif current_user.admin == true %>
         <%= link_to "Profile Admin", admin_students_path %>
       <% end %>
     <% else %>
